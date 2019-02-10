@@ -1,13 +1,16 @@
 class Solution {
-    public int[] sortedSquares(int[] A) {
-        int[] ret = new int[A.length];
+    public int maxArea(int[] height) {
+        int hi = height.length - 1;
+        int lo = 0;
+        int a = 0;
 
-        for (int i = 0; i < A.length; i++){
-            int square = A[i];
-            ret[i] = square*square;
+        while(lo != hi) {
+            int currentArea = Math.min(height[hi], height[lo])*(hi - lo);
+            if (height[lo] < height[hi]) lo++;
+            else hi--;
+            if (currentArea > a) a = currentArea;
         }
-        
-        Arrays.sort(ret);
-        return ret;
+
+        return a;
     }
 }

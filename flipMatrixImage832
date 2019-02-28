@@ -1,0 +1,30 @@
+/* Given a binary matrix A, we want to flip the image horizontally, then invert it,
+   and return the resulting image.
+   To flip an image horizontally means that each row of the image is reversed. 
+*/ For example, flipping [1, 1, 0] horizontally results in [0, 1, 1].
+
+class Solution {
+    public int[][] flipAndInvertImage(int[][] A) {
+        int l = 0;
+        int r = A.length-1;
+        
+        for (int i = 0; i < A.length; i++) {
+            int[] arr = A[i];
+            while (l <= r) {
+                if (l == r) {
+                    if (arr[l] == 0) arr[l] = 1; else arr[l] = 0;
+                    break;
+                }
+                int temp = arr[l];
+                arr[l] = arr[r];
+                arr[r] = temp;
+                if (arr[l] == 0) arr[l] = 1; else arr[l] = 0;
+                if (arr[r] == 1) arr[r] = 0; else arr[r] = 1;
+                l++; r--;
+            }
+            l = 0;
+            r = A.length-1;
+        }
+        return A;
+    }
+}

@@ -16,9 +16,6 @@ class Solution {
             }
         }
         
-
-        
-        
         // Brute Force Solution
         // for (int j = 0; j < prices.length; j++) {
         //     for (int i = j+1; i < prices.length; i++) {

@@ -12,7 +12,7 @@ class Solution {
             int add2 = target - nums[i];
             if (map.containsKey(add2)){
                 if (map.get(add2) != i) {
-                    return new int[]{ i, map.get(add2)};
+                    return new int[]{ i, map.get(add2) };
                 }
             }
         }

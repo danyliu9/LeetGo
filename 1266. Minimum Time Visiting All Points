@@ -1,0 +1,45 @@
+class Solution {
+    public int minTimeToVisitAllPoints(int[][] points) {
+        if (points.length == 1) {
+            return 0;
+        } else {
+            int time = 0;
+            for (int i = 1; i < points.length; i++) {
+                int[] currPair = points[i-1];
+                int[] nextPair = points[i];
+                int xDiff = Math.abs(nextPair[0] - currPair[0]);
+                int yDiff = Math.abs(nextPair[1] - currPair[1]);
+                time += xDiff >= yDiff ? xDiff : yDiff;
+            }
+            return time;
+            
+            // Brute Force
+//             int time = 0;
+//             for (int i = 1; i < points.length; i++) {
+//                 int[] currPair = points[i-1];
+//                 int[] nextPair = points[i];
+                
+//                 int x = currPair[0];
+//                 int y = currPair[1];
+//                 while (x != nextPair[0] || y != nextPair[1]) {
+//                     if (x < nextPair[0]) {
+//                         x++;
+//                         currPair[0]=x;
+//                     } else if (x > nextPair[0]) {
+//                         x--;
+//                         currPair[0]=x;
+//                     }
+//                     if (y < nextPair[1]) {
+//                         y++;
+//                         currPair[1]=y;
+//                     } else if (y > nextPair[1]) {
+//                         y--;
+//                         currPair[1]=y;
+//                     }
+//                     time++;
+//                 }
+//             }
+//             return time;
+        }
+    }
+}

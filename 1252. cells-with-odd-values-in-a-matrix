@@ -1,0 +1,28 @@
+class Solution {
+    public int oddCells(int n, int m, int[][] indices) {
+    //  Brute Force
+        int[][] matrix = new int[n][m];
+        int odds = 0;
+        for (int[] pair : indices) {
+            int y = pair[0];
+            int x = pair[1];
+            for (int i = 0; i < n; i++) {
+                matrix[i][x]++;
+                if (matrix[i][x] % 2 == 1) {
+                    odds++;
+                } else {
+                    odds--;
+                }
+            }
+            for (int i = 0; i < m; i++) {
+                matrix[y][i]++;
+                if (matrix[y][i] % 2 == 1) {
+                    odds++;
+                } else {
+                    odds--;
+                }
+            }
+        }
+        return odds;
+    }
+}

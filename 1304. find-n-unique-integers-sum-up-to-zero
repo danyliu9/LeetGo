@@ -1,0 +1,17 @@
+class Solution {
+    public int[] sumZero(int n) {
+        int[] arr = new int[n];
+        int currentValue = n/2;
+        int left = 0;
+        int right = n-1;
+        
+        while (left <= right) {
+            arr[left] = -(currentValue);
+            arr[right] = currentValue;
+            left++;
+            right--;
+            currentValue--;
+        }
+        return arr;
+    }
+}

@@ -1,0 +1,14 @@
+class Solution {
+    public int[] replaceElements(int[] arr) {
+        int len = arr.length-1;
+        int currMax = -1;
+        for (int i = len; i >= 0; i--) {
+            int currElt = arr[i];
+            arr[i] = currMax;
+            if (currMax < currElt) {
+                currMax = currElt;
+            }
+        }
+        return arr;
+    }
+}
